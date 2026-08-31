@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Web IDE Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs/editor/editor.main.min.css">
+</head>
+<body class="bg-gray-900 text-white h-screen flex flex-col overflow-hidden">
+
+  <header class="bg-gray-800 px-6 py-3 flex justify-between items-center border-b border-gray-700">
+    <div class="flex items-center gap-3">
+      <h1 class="font-bold text-lg text-blue-400">⚡ Web IDE Studio</h1>
+      <span id="saveStatus" class="text-xs bg-gray-700 text-gray-300 px-2.5 py-1 rounded-full">พร้อมใช้งาน</span>
+    </div>
+    <div class="flex gap-2">
+      <button id="saveBtn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-lg text-sm font-medium transition-all">💾 บันทึก</button>
+      <button id="runBtn" class="bg-green-600 hover:bg-green-500 text-white px-4 py-1.5 rounded-lg text-sm font-medium transition-all">▶ กดรัน (Run)</button>
+    </div>
+  </header>
+
+  <div class="flex-1 flex overflow-hidden">
+    <aside class="w-48 bg-gray-800 border-r border-gray-700 p-3 flex flex-col gap-1">
+      <div class="text-xs text-gray-400 font-semibold px-2 mb-2 uppercase">ไฟล์โปรเจกต์</div>
+      <button data-type="html" class="tab-btn w-full text-left px-3 py-2 rounded text-sm bg-gray-700 text-white">📄 index.html</button>
+      <button data-type="css" class="tab-btn w-full text-left px-3 py-2 rounded text-sm text-gray-300 hover:bg-gray-700">🎨 style.css</button>
+      <button data-type="js" class="tab-btn w-full text-left px-3 py-2 rounded text-sm text-gray-300 hover:bg-gray-700">⚡ script.js</button>
+      <button data-type="php" class="tab-btn w-full text-left px-3 py-2 rounded text-sm text-gray-300 hover:bg-gray-700">🐘 main.php</button>
+      <button data-type="sql" class="tab-btn w-full text-left px-3 py-2 rounded text-sm text-gray-300 hover:bg-gray-700">🗄️ schema.sql</button>
+    </aside>
+
+    <div class="flex-1 flex flex-col border-r border-gray-700">
+      <div id="editorContainer" class="w-full h-full"></div>
+    </div>
+
+    <div class="flex-1 bg-white flex flex-col">
+      <div class="bg-gray-100 text-gray-700 px-4 py-1.5 text-xs font-semibold border-b border-gray-300 flex justify-between">
+        <span>📺 ผลลัพธ์ (Preview Output)</span>
+        <span id="outputType" class="text-gray-400">Web View</span>
+      </div>
+      <iframe id="previewFrame" class="w-full h-full border-0"></iframe>
+      <div id="consoleOutput" class="hidden w-full h-full p-4 font-mono text-sm bg-black text-green-400 overflow-auto"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs/loader.min.js"></script>
+  <script type="module" src="/src/js/editor.js"></script>
+</body>
+</html>
