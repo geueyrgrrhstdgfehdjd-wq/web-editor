@@ -8,7 +8,10 @@ export const renderWebPreview = (files) => {
   const fullHTML = `
     <!DOCTYPE html>
     <html>
-    <head><style>${files.css || ''}</style></head>
+    <head>
+      <meta charset="UTF-8">
+      <style>${files.css || ''}</style>
+    </head>
     <body>
       ${files.html || ''}
       <script>${files.js || ''}<\/script>
